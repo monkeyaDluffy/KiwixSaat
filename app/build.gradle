@@ -1,0 +1,40 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.kiwixsaat'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.kiwixsaat'
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+
+        // Galaxy Watch7 sadece 32-bit (armeabi-v7a) uygulama çalıştırıyor
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    // kiwix-serve programının APK içinden çalıştırılabilmesi için
+    packaging {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

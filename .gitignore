@@ -1,0 +1,7 @@
+build/
+.gradle/
+local.properties
+*.apk
+kt.tar.gz
+kiwix-tools_*/
+app/src/main/jniLibs/
